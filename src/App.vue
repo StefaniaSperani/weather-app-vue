@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :class="weather.main != 'undefined' && weather.main.temp > 15 ? 'warm' : ''">
+  <div id="app" :class="typeof weather.main != 'undefined' && weather.main.temp > 15 ? 'warm' : ''">
     <main>
       <div class="search-box">
         <input type="text" class="search-bar" placeholder="Search..." v-model="query" @keypress="fetchWeather">
@@ -12,7 +12,7 @@
         </div>
 
         <div class="weather-box">
-          <div class="temp">{{ Math.round(weather.main.temp) }}°c</div>
+          <div class="temp">{{ weather.main.temp }}°c</div>
           <div class="weather">{{ weather.weather[0].description }} </div>
         </div>
       </div>
@@ -36,6 +36,7 @@ export default {
       if (e.key == "Enter") {
         fetch(`${this.url_base}weather?q=${this.query}&lang=it&appid=${this.api_key}&units=metric `)
           .then(res => {
+
             return res.json();
           }).then(this.setResults);
       }
@@ -55,7 +56,7 @@ export default {
 
       return `${day} ${date} ${month} ${year}`
     }
-  }
+  },
 }
 </script>
 
