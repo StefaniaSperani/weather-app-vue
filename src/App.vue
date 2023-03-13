@@ -12,7 +12,7 @@
         </div>
 
         <div class="weather-box">
-          <div class="temp">{{ weather.main.temp }}°c</div>
+          <div class="temp">{{ weather.main.temp }}°c </div>
           <div class="weather">{{ weather.weather[0].description }} </div>
         </div>
       </div>
@@ -135,7 +135,7 @@ main {
   font-weight: 300;
   font-style: italic;
   text-align: center;
-  text-shadow: 1px 3px rgba(0, 0, 0, 0.25);
+  opacity: 0.7;
 }
 
 .weather-box {
